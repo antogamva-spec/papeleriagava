@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papelería GAVA</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f0f0;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background: linear-gradient(90deg, #d62828, #b71c1c);
+            color: white;
+            padding: 25px 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* NAV */
+        nav {
+            background: #003049;
+            padding: 12px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO CON TU IMAGEN */
+        .hero {
+            background: url('FONDOPAPE.jpg') center/contain no-repeat;
+            background-color: #ffd60a;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 4px solid #d62828;
+        }
+
+        /* SECCIONES */
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #b71c1c;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        /* 🎨 NUEVA SECCIÓN DE SERVICIOS (Tarjetas chidas) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            transition: 0.25s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        }
+
+        .service-card i {
+            font-size: 45px;
+            color: #d62828;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* TARJETAS DE PRODUCTOS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        /* ✅ Para que el texto no quede pegado */
+        .card h3, .card p {
+            padding: 0 14px;
+        }
+        .card h3 {
+            margin: 14px 0 6px;
+        }
+        .card p {
+            margin: 0 0 16px;
+            color: #333;
+        }
+
+        /* CONTACTO */
+        #contacto p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #003049;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* BOTÓN WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #25d366;
+            color: white;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp:hover {
+            background: #1ebe5d;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Papelería GAVA</h1>
+    <p>Copias, impresiones y material escolar al mejor precio</p>
+</header>
+
+<nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- HERO CON TU IMAGEN -->
+<div class="hero"></div>
+
+<!-- 🎨 SECCIÓN DE SERVICIOS MODERNA -->
+<section id="servicios" class="section">
+    <h2>Servicios</h2>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <i>🖨️</i>
+            <h3>Copias e Impresiones</h3>
+            <p>Desde $0.60, blanco y negro o a color con excelente calidad.</p>
+        </div>
+
+        <div class="service-card">
+            <i>📘</i>
+            <h3>Engargolados</h3>
+            <p>Terminado profesional para tareas, trabajos y proyectos.</p>
+        </div>
+
+        <div class="service-card">
+            <i>🎁</i>
+            <h3>Bolsas de Regalo y Detallitos</h3>
+            <p>Bolsas de regalo, moños, papel decorativo y pequeños obsequios.</p>
+        </div>
+
+        <div class="service-card">
+            <i>✏️</i>
+            <h3>Útiles Escolares</h3>
+            <p>Cuadernos, colores, lápices, mochilas y más.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Juguetes -->
+<div class="card">
+    <img src="juguetes.jpg" alt="Juguetes">
+    <h3>Juguetes</h3>
+    <p>Muñecos, carritos, juegos didácticos y sorpresas para niñas y niños.</p>
+</div>
+
+
+
+
+
+<section id="productos" class="section">
+    <h2>Productos Destacados</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="material.jpg" alt="Útiles Escolares">
+            <h3>Útiles Escolares</h3>
+            <p>Cuadernos, colores, lápices y más.</p>
+        </div>
+
+        <div class="card">
+            <img src="oficina.png" alt="Material de Oficina">
+            <h3>Material de Oficina</h3>
+            <p>Folders, hojas, carpetas, grapas, etc.</p>
+        </div>
+
+        <div class="card">
+            <img src="Impresion.jpg" alt="Impresiones">
+            <h3>Impresiones</h3>
+            <p>Gran calidad en color y blanco y negro.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contacto" class="section" style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start;
+">
+    
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <div style="max-width: 350px; flex: 1; min-width: 260px; text-align: left;">
+        <h2>Contacto</h2>
+        <p>
+            📍 Estado de México<br>
+            📞 55 8516 3049<br>
+            ✉️ agamboav1400@alumno.ipn.mx
+        </p>
+    </div>
+
+    <!-- MAPA -->
+    <div style="flex: 1; min-width: 300px; height: 320px;">
+        <iframe 
+            src="https://maps.google.com/maps?q=19.643659646757797,-99.01465397862495&z=18&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0; border-radius: 12px;"
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+
+</section>
+
+<!-- ✅ FOOTER -->
+<footer>
+    © 2025 Papelería GAVA — Copias, impresiones y útiles escolares
+</footer>
+
+<!-- ✅ BOTÓN WHATSAPP (tu número) -->
+<a class="whatsapp" href="https://wa.me/525585163049" target="_blank" aria-label="WhatsApp">
+    💬
+</a>
+
+</body>
+</html>
+
