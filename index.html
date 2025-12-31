@@ -50,14 +50,11 @@
             text-decoration: underline;
         }
 
-        /* HERO CON TU IMAGEN */
+        /* HERO */
         .hero {
             background: url('FONDOPAPE.jpg') center/contain no-repeat;
             background-color: #ffd60a;
             height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-bottom: 4px solid #d62828;
         }
 
@@ -73,7 +70,7 @@
             font-size: 2rem;
         }
 
-        /* 🎨 NUEVA SECCIÓN DE SERVICIOS (Tarjetas chidas) */
+        /* SERVICIOS */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -102,7 +99,7 @@
             display: block;
         }
 
-        /* TARJETAS DE PRODUCTOS */
+        /* PRODUCTOS */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -129,13 +126,14 @@
             object-fit: cover;
         }
 
-        /* ✅ Para que el texto no quede pegado */
         .card h3, .card p {
             padding: 0 14px;
         }
+
         .card h3 {
             margin: 14px 0 6px;
         }
+
         .card p {
             margin: 0 0 16px;
             color: #333;
@@ -143,7 +141,7 @@
 
         /* CONTACTO */
         #contacto p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
         }
 
@@ -157,7 +155,7 @@
             font-size: 0.9rem;
         }
 
-        /* BOTÓN WHATSAPP */
+        /* WHATSAPP */
         .whatsapp {
             position: fixed;
             right: 20px;
@@ -194,122 +192,110 @@
     <a href="#contacto">Contacto</a>
 </nav>
 
-<!-- HERO CON TU IMAGEN -->
 <div class="hero"></div>
 
-<!-- 🎨 SECCIÓN DE SERVICIOS MODERNA -->
+<!-- SERVICIOS -->
 <section id="servicios" class="section">
     <h2>Servicios</h2>
 
     <div class="services-grid">
-
         <div class="service-card">
             <i>🖨️</i>
             <h3>Copias e Impresiones</h3>
-            <p>Desde $0.60, blanco y negro o a color con excelente calidad.</p>
+            <p>Desde $0.60, blanco y negro o a color.</p>
         </div>
 
         <div class="service-card">
             <i>📘</i>
             <h3>Engargolados</h3>
-            <p>Terminado profesional para tareas, trabajos y proyectos.</p>
+            <p>Trabajos y proyectos.</p>
         </div>
 
         <div class="service-card">
             <i>🎁</i>
-            <h3>Bolsas de Regalo y Detallitos</h3>
-            <p>Bolsas de regalo, moños, papel decorativo y pequeños obsequios.</p>
+            <h3>Bolsas de Regalo</h3>
+            <p>Detalles para toda ocasión.</p>
         </div>
 
         <div class="service-card">
             <i>✏️</i>
             <h3>Útiles Escolares</h3>
-            <p>Cuadernos, colores, lápices, mochilas y más.</p>
+            <p>Todo para la escuela.</p>
         </div>
-
     </div>
 </section>
 
-
-<!-- Juguetes -->
-<div class="card">
-    <img src="juguetes.jpg" alt="Juguetes">
-    <h3>Juguetes</h3>
-    <p>Muñecos, carritos, juegos didácticos y sorpresas para niñas y niños.</p>
-</div>
-
-
-
-
-
+<!-- PRODUCTOS -->
 <section id="productos" class="section">
     <h2>Productos Destacados</h2>
 
     <div class="products">
-
         <div class="card">
-            <img src="material.jpg" alt="Útiles Escolares">
+            <img src="util.jpg" alt="Útiles Escolares">
             <h3>Útiles Escolares</h3>
-            <p>Cuadernos, colores, lápices y más.</p>
+            <p>Cuadernos, colores y más.</p>
         </div>
 
         <div class="card">
             <img src="oficina.png" alt="Material de Oficina">
             <h3>Material de Oficina</h3>
-            <p>Folders, hojas, carpetas, grapas, etc.</p>
+            <p>Folders, hojas, carpetas.</p>
         </div>
 
         <div class="card">
             <img src="Impresion.jpg" alt="Impresiones">
             <h3>Impresiones</h3>
-            <p>Gran calidad en color y blanco y negro.</p>
+            <p>Alta calidad.</p>
         </div>
 
+        <a href="juguetes.html" style="text-decoration:none; color:inherit; display:block;">
+            <div class="card">
+                <img src="toy.jpg" alt="Juguetes">
+                <h3>Juguetes</h3>
+                <p>Ver catálogo completo.</p>
+            </div>
+        </a>
     </div>
 </section>
 
-<section id="contacto" class="section" style="
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    align-items: flex-start;
-">
+<!-- CONTACTO + MAPA -->
+<section id="contacto" class="section" style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
     
-    <!-- INFORMACIÓN DE CONTACTO -->
-    <div style="max-width: 350px; flex: 1; min-width: 260px; text-align: left;">
+    <div style="max-width:350px; text-align:left;">
         <h2>Contacto</h2>
         <p>
-            📍 Estado de México<br>
-            📞 55 8516 3049<br>
-            ✉️ agamboav1400@alumno.ipn.mx
+            📞 55 2367 3050
         </p>
     </div>
 
-    <!-- MAPA -->
-    <div style="flex: 1; min-width: 300px; height: 320px;">
-        <iframe 
-            src="https://maps.google.com/maps?q=19.643659646757797,-99.01465397862495&z=18&output=embed" 
-            width="100%" 
-            height="100%" 
-            style="border:0; border-radius: 12px;"
-            allowfullscreen="" 
+    <div style="flex:1; min-width:300px; height:320px;">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15094.701339602668!2d-99.0146667!3d19.6439722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f1c3952d78b7%3A0x9759e9988e53654!2sPapeler%C3%ADa%20GAVA!5e0!3m2!1ses!2smx!4v1704025380000"
+            width="100%"
+            height="100%"
+            style="border:0; border-radius:12px;"
+            allowfullscreen=""
             loading="lazy">
         </iframe>
+
+        <p style="text-align:center; margin-top:10px;">
+            <a href="https://www.google.com/maps/place/19.6439722,-99.0146667"
+               target="_blank"
+               style="display:inline-block; background:#003049; color:white; padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:bold;">
+               📍 Ver ubicación en Google Maps
+            </a>
+        </p>
     </div>
 
 </section>
 
-<!-- ✅ FOOTER -->
 <footer>
     © 2025 Papelería GAVA — Copias, impresiones y útiles escolares
 </footer>
 
-<!-- ✅ BOTÓN WHATSAPP (tu número) -->
-<a class="whatsapp" href="https://wa.me/525585163049" target="_blank" aria-label="WhatsApp">
+<a class="whatsapp" href="https://wa.me/525523673050" target="_blank" aria-label="WhatsApp">
     💬
 </a>
 
 </body>
 </html>
-
