@@ -97,12 +97,25 @@
             text-decoration: underline;
         }
 
-        /* HERO */
+        /* ✅ HERO (AHORA CON IMAGEN QUE CAMBIA) */
         .hero {
-            background: url('FONDOPAPE.jpg') center/contain no-repeat;
             background-color: #ffd60a;
             height: 380px;
             border-bottom: 4px solid #d62828;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+        }
+
+        .hero img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            transform: rotate(0deg) scale(1);
+            opacity:1;
+            transition: opacity .9s ease, transform .9s ease;
         }
 
         /* SECCIONES */
@@ -146,7 +159,7 @@
             display: block;
         }
 
-        /* FIX: LINKS EN SERVICIOS (para que NO se vea diferente) */
+        /* FIX: LINKS EN SERVICIOS */
         .service-link {
             display: block;
             text-decoration: none;
@@ -252,22 +265,19 @@
             justify-content: center;
         }
 
-.banner-content.center{
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-
         .whatsapp:hover {
             background: #1ebe5d;
+        }
+
+        .banner-content.center{
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-
-<!-- ✅ NUEVO HEADER -->
 
 <header class="banner">
     <div class="banner-content center">
@@ -276,14 +286,16 @@
     </div>
 </header>
 
-
 <nav>
     <a href="#servicios">Servicios</a>
     <a href="#productos">Productos</a>
     <a href="#contacto">Contacto</a>
 </nav>
 
-<div class="hero"></div>
+<!-- ✅ HERO con imagen que cambia -->
+<div class="hero">
+    <img id="heroImg" src="FONDOPAPE.jpg" alt="Papelería GAVA">
+</div>
 
 <!-- SERVICIOS -->
 <section id="servicios" class="section">
@@ -394,6 +406,36 @@
     💬
 </a>
 
+<!-- ✅ SCRIPT: cambia 5 imágenes con giro bonito -->
+<script>
+  const heroImages = [
+    "FONDOPAPE.jpg",
+    "COPIAS.png",
+    "CARTA.jpg",
+    "FONDOPAPE.jpg",
+    "CAM.jpg"
+  ];
+
+  let idx = 0;
+  const heroImg = document.getElementById("heroImg");
+
+  setInterval(() => {
+    // Sale: se desvanece y gira un poquito
+    heroImg.style.opacity = "0";
+    heroImg.style.transform = "rotate(6deg) scale(0.97)";
+
+    setTimeout(() => {
+      // Cambia imagen
+      idx = (idx + 1) % heroImages.length;
+      heroImg.src = heroImages[idx];
+
+      // Entra: regresa normal
+      heroImg.style.opacity = "1";
+      heroImg.style.transform = "rotate(0deg) scale(1)";
+    }, 650);
+
+  }, 3000); // cada 3 segundos
+</script>
+
 </body>
 </html>
-S
