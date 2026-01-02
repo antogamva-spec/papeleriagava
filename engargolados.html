@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engargolados | Papelería GAVA</title>
+  <meta name="description" content="Engargolados en Papelería GAVA. Elige tamaño, tipo de pasta y color. Cotiza rápido por WhatsApp." />
+
+  <style>
+    body{
+      margin:0;
+      font-family:'Segoe UI', Arial, sans-serif;
+      background:#f2f2f2;
+      color:#222;
+    }
+
+    header{
+      background: linear-gradient(90deg, #d62828, #b71c1c);
+      color:white;
+      padding:22px 15px;
+      text-align:center;
+    }
+    header h1{ margin:0; font-size:2rem; }
+    header p{ margin:6px 0 0; opacity:.9; }
+
+    nav{
+      background:#003049;
+      padding:12px;
+      text-align:center;
+    }
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    nav a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width:1100px;
+      margin:22px auto;
+      padding:0 15px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .card{
+      background:white;
+      border-radius:14px;
+      box-shadow:0 4px 16px rgba(0,0,0,.14);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding:18px 18px 16px;
+    }
+    .hero h2{
+      margin:0 0 8px;
+      color:#b71c1c;
+      font-size:1.4rem;
+    }
+    .hero p{
+      margin:0;
+      color:#444;
+      line-height:1.55;
+    }
+
+    .lista{
+      padding:18px;
+    }
+    .lista h3{
+      margin:0 0 10px;
+      color:#003049;
+      font-size:1.1rem;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .badge{
+      background:#f6f6f6;
+      border:1px solid #e6e6e6;
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:600;
+      color:#333;
+      font-size:.92rem;
+    }
+
+    .nota{
+      padding:0 18px 18px;
+      color:#444;
+      font-size:.92rem;
+    }
+
+    /* LADO DERECHO: caja de cotización */
+    .side{
+      padding:18px;
+    }
+    .side h3{
+      margin:0 0 10px;
+      color:#003049;
+      font-size:1.1rem;
+    }
+    .side p{
+      margin:0;
+      color:#444;
+      line-height:1.55;
+    }
+
+    .mini-lista{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:#444;
+    }
+    .mini-lista li{
+      margin:6px 0;
+    }
+
+    .cta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:18px;
+      border-top:1px solid #eee;
+    }
+    .btn{
+      display:block;
+      text-align:center;
+      background:#25d366;
+      color:white;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:12px;
+      font-weight:800;
+      box-shadow:0 3px 12px rgba(0,0,0,.14);
+    }
+    .btn:hover{ background:#1ebe5d; }
+
+    .btn2{
+      display:block;
+      text-align:center;
+      background:#003049;
+      color:white;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:12px;
+      font-weight:800;
+      box-shadow:0 3px 12px rgba(0,0,0,.14);
+    }
+    .btn2:hover{ opacity:.92; }
+
+    /* ✅ IMAGEN A LA DERECHA, HASTA ABAJO */
+    .imagen-final{
+      display:flex;
+      align-items:flex-end; /* baja la imagen */
+      justify-content:center;
+      padding:18px;
+    }
+
+    .img-placeholder{
+      width:100%;
+      border:2px dashed #ccc;
+      border-radius:14px;
+      padding:10px;
+      text-align:center;
+    }
+
+    .img-placeholder img{
+      width:100%;
+      max-height:380px;     /* 👈 AQUI creces o reduces la imagen */
+      object-fit:contain;
+      border-radius:10px;
+    }
+
+    footer{
+      background:#003049;
+      color:white;
+      text-align:center;
+      padding:18px;
+      margin-top:30px;
+      font-size:.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .wrap{ grid-template-columns:1fr; }
+      .imagen-final{ align-items:center; }
+      .img-placeholder img{ max-height:360px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>📘 Engargolados</h1>
+  <p>Papelería GAVA</p>
+</header>
+
+<nav>
+  <a href="index.html">⬅ Volver al inicio</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- ✅ CONTENIDO IZQUIERDA -->
+  <div class="card">
+    <div class="hero">
+      <h2>Presentación limpia y resistente</h2>
+      <p>
+        Ideal para tareas, proyectos, manuales y documentos escolares.
+        Elige tamaño, tipo de pasta y color.
+      </p>
+    </div>
+
+    <div class="lista">
+      <h3>📌 Tamaños disponibles</h3>
+      <div class="badges">
+        <div class="badge">Carta</div>
+        <div class="badge">Oficio</div>
+        <div class="badge">Doble carta</div>
+        <div class="badge">A4</div>
+        <div class="badge">A5</div>
+      </div>
+    </div>
+
+    <div class="lista">
+      <h3>📎 Tipos de pasta</h3>
+      <div class="badges">
+        <div class="badge">Transparente</div>
+        <div class="badge">Opaca</div>
+      </div>
+    </div>
+
+    <div class="lista">
+      <h3>🎨 Colores disponibles</h3>
+      <div class="badges">
+        <div class="badge">Negro</div>
+        <div class="badge">Azul</div>
+        <div class="badge">Rojo</div>
+        <div class="badge">Verde</div>
+        <div class="badge">Morado</div>
+        <div class="badge">Rosa</div>
+      </div>
+    </div>
+
+    <div class="nota">
+      ✅ Recomendación: mándanos por WhatsApp el tamaño, número de hojas y el tipo/color de pasta.
+    </div>
+  </div>
+
+  <!-- ✅ LADO DERECHO (COTIZACIÓN + IMAGEN ABAJO) -->
+  <div>
+    <div class="card">
+      <div class="side">
+        <h3>📲 Cotiza rápido</h3>
+        <p>Envíanos por WhatsApp:</p>
+        <ul class="mini-lista">
+          <li>Tamaño</li>
+          <li>Número de hojas</li>
+          <li>Tipo y color de pasta</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <a class="btn"
+           href="https://wa.me/525523673050?text=Hola,%20quiero%20cotizar%20un%20engargolado.%20Tamaño:%20_____%20Hojas:%20_____%20Pasta:%20(Transparente/Opaca)%20Color:%20_____"
+           target="_blank">
+          Cotizar por WhatsApp
+        </a>
+
+        <a class="btn2" href="index.html#contacto">
+          Ver contacto / mapa
+        </a>
+      </div>
+    </div>
+
+    <!-- ✅ IMAGEN A LA DERECHA HASTA ABAJO -->
+    <div class="card imagen-final" style="margin-top:22px;">
+      <div class="img-placeholder">
+        <!-- 🔻 CAMBIA SOLO EL NOMBRE DEL ARCHIVO -->
+        <img src="engargolado.jpg" alt="Engargolados Papelería GAVA">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Papelería GAVA — Engargolados
+</footer>
+
+</body>
+</html>

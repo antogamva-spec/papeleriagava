@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copias e Impresiones | Papelería GAVA</title>
+  <meta name="description" content="Copias, impresiones y memorias USB en Papelería GAVA. Blanco y negro, color, escaneo, engargolado y más." />
+
+  <style>
+    body{
+      margin:0;
+      font-family:'Segoe UI', Arial, sans-serif;
+      background:#f2f2f2;
+      color:#222;
+    }
+
+    header{
+      background: linear-gradient(90deg, #d62828, #b71c1c);
+      color:white;
+      padding:22px 15px;
+      text-align:center;
+    }
+
+    header h1{ margin:0; font-size:2rem; }
+    header p{ margin:6px 0 0; opacity:.9; }
+
+    nav{
+      background:#003049;
+      padding:12px;
+      text-align:center;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    nav a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width:1100px;
+      margin:22px auto;
+      padding:0 15px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .card{
+      background:white;
+      border-radius:14px;
+      box-shadow:0 4px 16px rgba(0,0,0,.14);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding:18px;
+    }
+
+    .hero h2{
+      margin:0 0 8px;
+      color:#b71c1c;
+      font-size:1.4rem;
+    }
+
+    .hero p{
+      margin:0;
+      color:#444;
+      line-height:1.55;
+    }
+
+    .lista{
+      padding:18px;
+    }
+
+    .lista h3{
+      margin:0 0 10px;
+      color:#003049;
+      font-size:1.1rem;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .badge{
+      background:#f6f6f6;
+      border:1px solid #e6e6e6;
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:600;
+      font-size:.92rem;
+    }
+
+    .precios{
+      padding:18px;
+    }
+
+    .precios h3{
+      margin:0 0 12px;
+      color:#003049;
+      font-size:1.1rem;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:12px;
+      overflow:hidden;
+    }
+
+    th, td{
+      padding:12px;
+      border-bottom:1px solid #eee;
+      text-align:left;
+    }
+
+    th{
+      background:#003049;
+      color:white;
+    }
+
+    tr:last-child td{ border-bottom:none; }
+
+    .nota{
+      padding:0 18px 18px;
+      font-size:.92rem;
+      color:#444;
+    }
+
+    /* ✅ SECCIÓN USB (CATÁLOGO) */
+    .usb-section{
+      padding:18px;
+      border-top:1px solid #eee;
+      background:#fafafa;
+    }
+
+    .usb-section h3{
+      margin:0 0 10px;
+      color:#003049;
+      font-size:1.1rem;
+    }
+
+    .usb-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .usb-card{
+      background:white;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 2px 12px rgba(0,0,0,.10);
+      transition:.2s;
+      text-align:center;
+      border:1px solid #eee;
+    }
+
+    .usb-card:hover{
+      transform: translateY(-4px);
+      box-shadow:0 6px 18px rgba(0,0,0,.16);
+    }
+
+    .usb-card img{
+      width:100%;
+      height:130px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .usb-info{
+      padding:12px 12px 14px;
+    }
+
+    .usb-info h4{
+      margin:6px 0 4px;
+      color:#b71c1c;
+      font-size:1rem;
+    }
+
+    .usb-info p{
+      margin:0;
+      color:#444;
+      font-size:.88rem;
+      line-height:1.35;
+    }
+
+    .usb-btn{
+      display:inline-block;
+      margin-top:10px;
+      background:#25d366;
+      color:white;
+      text-decoration:none;
+      font-weight:800;
+      padding:8px 12px;
+      border-radius:12px;
+      font-size:.88rem;
+    }
+
+    .usb-btn:hover{ background:#1ebe5d; }
+
+    /* COLUMNA DERECHA */
+    .side{
+      padding:18px;
+    }
+
+    .side h3{
+      margin:0 0 10px;
+      color:#003049;
+      font-size:1.1rem;
+    }
+
+    .cta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:18px;
+    }
+
+    .btn{
+      background:#25d366;
+      color:white;
+      text-decoration:none;
+      padding:12px;
+      border-radius:12px;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .btn:hover{ background:#1ebe5d; }
+
+    .btn2{
+      background:#003049;
+      color:white;
+      text-decoration:none;
+      padding:12px;
+      border-radius:12px;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .imagen-lateral{
+      margin:20px;
+      text-align:center;
+    }
+
+    .imagen-lateral img{
+      width:280px;
+      max-width:100%;
+      border-radius:12px;
+      box-shadow:0 4px 14px rgba(0,0,0,.15);
+    }
+
+    footer{
+      background:#003049;
+      color:white;
+      text-align:center;
+      padding:18px;
+      margin-top:30px;
+      font-size:.9rem;
+    }
+
+    @media (max-width: 900px){
+      .wrap{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🖨️ Copias e Impresiones</h1>
+  <p>Papelería GAVA</p>
+</header>
+
+<nav>
+  <a href="index.html">⬅ Volver al inicio</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- COLUMNA IZQUIERDA -->
+  <div class="card">
+
+    <div class="hero">
+      <h2>Servicio rápido y con buena calidad</h2>
+      <p>
+        Copias blanco y negro, color, carta, oficio, doble carta,
+        escaneo e impresión desde WhatsApp.
+      </p>
+    </div>
+
+    <div class="lista">
+      <h3>📌 Servicios</h3>
+      <div class="badges">
+        <div class="badge">Copias B/N</div>
+        <div class="badge">Copias a color</div>
+        <div class="badge">Impresión PDF / Word / Imágenes</div>
+        <div class="badge">Impresión en papel fotográfico</div>
+        <div class="badge">Escaneo</div>
+        <div class="badge">Engargolado</div>
+        <div class="badge">Enmicado</div>
+        <div class="badge">Carta</div>
+        <div class="badge">Oficio</div>
+        <div class="badge">Doble carta</div>
+        <div class="badge">Opalina</div>
+        <div class="badge">A5</div>
+        <div class="badge">Folders</div>
+      </div>
+    </div>
+
+    <div class="precios">
+      <h3>💲 Precios Mayoreo</h3>
+      <table>
+        <tr>
+          <th>Servicio</th>
+          <th>Precio</th>
+        </tr>
+        <tr>
+          <td>Copia o Impresión B/N (Carta)</td>
+          <td>$0.60</td>
+        </tr>
+        <tr>
+          <td>Copia o Impresión B/N (Oficio)</td>
+          <td>$0.80</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ✅ SECCIÓN MEMORIAS USB (VISUAL) -->
+    <div class="usb-section">
+      <h3>💾 Memorias USB💾</h3>
+      <p style="color:#444;margin:0;">
+        Perfectas para imprimir tus archivos o guardar tareas y proyectos.
+      </p>
+
+      <div class="usb-grid">
+
+        <div class="usb-card">
+          <img src="usb16.jpg" alt="Memoria USB 8GB">
+          <div class="usb-info">
+            <h4>USB 16 GB</h4>
+            <p>Ideal para tareas y documentos.</p>
+            <a class="usb-btn" href="https://wa.me/525523673050?text=Hola,%20quiero%20una%20memoria%20USB%208GB" target="_blank">Preguntar</a>
+          </div>
+        </div>
+
+        <div class="usb-card">
+          <img src="usb32.jpg" alt="Memoria USB 16GB">
+          <div class="usb-info">
+            <h4>USB 32 GB</h4>
+            <p>Perfecta para escuela y trabajo.</p>
+            <a class="usb-btn" href="https://wa.me/525523673050?text=Hola,%20quiero%20una%20memoria%20USB%2016GB" target="_blank">Preguntar</a>
+          </div>
+        </div>
+
+        <div class="usb-card">
+          <img src="usb64.jpg" alt="Memoria USB 32GB">
+          <div class="usb-info">
+            <h4>USB 64 GB</h4>
+            <p>Más espacio para fotos y archivos.</p>
+            <a class="usb-btn" href="https://wa.me/525523673050?text=Hola,%20quiero%20una%20memoria%20USB%2032GB" target="_blank">Preguntar</a>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="nota">
+      ✅ Trae tu USB o manda por WhatsApp · Pedidos grandes con anticipación
+    </div>
+
+  </div>
+
+  <!-- COLUMNA DERECHA -->
+  <div class="card">
+
+    <div class="side">
+      <h3>📲 Cotiza por WhatsApp</h3>
+      <p style="margin:0;color:#444;">
+        Envíanos tu archivo (PDF o imagen)
+      </p>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="https://wa.me/525523673050" target="_blank">
+        Cotizar por WhatsApp
+      </a>
+
+      <a class="btn2" href="index.html#contacto">
+        Ver contacto / mapa
+      </a>
+    </div>
+
+    <div class="imagen-lateral">
+      <img src="copia.jpg" alt="Impresiones y Copias Papelería GAVA">
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Papelería GAVA — Copias e impresiones
+</footer>
+
+</body>
+</html>
