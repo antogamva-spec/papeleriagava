@@ -12,7 +12,7 @@
             background: #f0f0f0;
         }
 
-        /* ✅ NUEVO HEADER TIPO FLYER */
+        /* ✅ HEADER TIPO FLYER */
         .banner{
             background: linear-gradient(90deg, #d62828, #b71c1c);
             color:#fff;
@@ -53,29 +53,16 @@
             line-height:1.45;
         }
 
-        .banner-btn{
-            align-self:flex-start;
-            background:rgba(255,255,255,.16);
-            border:1px solid rgba(255,255,255,.28);
-            color:#fff;
-            text-decoration:none;
-            font-weight:900;
-            padding:10px 14px;
-            border-radius:12px;
-            white-space:nowrap;
-        }
-
-        .banner-btn:hover{
-            background:rgba(255,255,255,.22);
-        }
-
         @media (max-width: 900px){
             .banner-content{
                 flex-direction:column;
             }
-            .banner-btn{
-                align-self:flex-start;
-            }
+        }
+
+        .banner-content.center{
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         /* NAV */
@@ -97,25 +84,60 @@
             text-decoration: underline;
         }
 
-        /* ✅ HERO (AHORA CON IMAGEN QUE CAMBIA) */
-        .hero {
-            background-color: #ffd60a;
+        /* ✅ HERO SLIDER */
+        .hero-slider{
+            position: relative;
             height: 380px;
-            border-bottom: 4px solid #d62828;
-
+            background:#ffd60a;
+            border-bottom:4px solid #d62828;
             display:flex;
             align-items:center;
             justify-content:center;
             overflow:hidden;
+            touch-action: pan-y;
         }
 
-        .hero img{
-            width:100%;
-            height:100%;
+        .hero-slider img{
+            max-width:100%;
+            max-height:100%;
             object-fit:contain;
-            transform: rotate(0deg) scale(1);
+            transition: transform .35s ease, opacity .35s ease;
+            user-select:none;
+            pointer-events:none;
+        }
+
+        /* ✅ DOTS (BURBUJITAS) */
+        .hero-dots{
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:12px;
+            display:flex;
+            justify-content:center;
+            gap:10px;
+            z-index:5;
+            pointer-events:auto;
+        }
+
+        .dot{
+            width:11px;
+            height:11px;
+            border-radius:50%;
+            background:rgba(0,0,0,0.28);
+            border:2px solid rgba(255,255,255,0.85);
+            cursor:pointer;
+            transition: transform .2s ease, background .2s ease, opacity .2s ease;
+            opacity:.9;
+        }
+
+        .dot:hover{
+            transform: scale(1.12);
+        }
+
+        .dot.active{
+            background:#003049;
             opacity:1;
-            transition: opacity .9s ease, transform .9s ease;
+            transform: scale(1.15);
         }
 
         /* SECCIONES */
@@ -224,7 +246,6 @@
             color: #333;
         }
 
-        /* FIX: LINK TARJETA PRODUCTOS */
         .card-link {
             text-decoration: none;
             color: inherit;
@@ -268,12 +289,6 @@
         .whatsapp:hover {
             background: #1ebe5d;
         }
-
-        .banner-content.center{
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
     </style>
 </head>
 
@@ -292,9 +307,10 @@
     <a href="#contacto">Contacto</a>
 </nav>
 
-<!-- ✅ HERO con imagen que cambia -->
-<div class="hero">
-    <img id="heroImg" src="FONDOPAPE.jpg" alt="Papelería GAVA">
+<!-- ✅ HERO DESLIZABLE + DOTS -->
+<div class="hero-slider" id="heroSlider">
+    <img id="heroImg" src="imagen1.jpg" alt="Papelería GAVA">
+    <div class="hero-dots" id="heroDots"></div>
 </div>
 
 <!-- SERVICIOS -->
@@ -406,35 +422,105 @@
     💬
 </a>
 
-<!-- ✅ SCRIPT: cambia 5 imágenes con giro bonito -->
+<!-- ✅ SLIDER JS + DOTS -->
 <script>
+  // 🔻 CAMBIA ESTOS NOMBRES POR LOS TUYOS
   const heroImages = [
     "FONDOPAPE.jpg",
-    "COPIAS.png",
     "CARTA.jpg",
     "FONDOPAPE.jpg",
+    "COPIAS.png",
     "CAM.jpg"
   ];
 
-  let idx = 0;
+  let current = 0;
   const heroImg = document.getElementById("heroImg");
+  const slider = document.getElementById("heroSlider");
+  const dotsWrap = document.getElementById("heroDots");
 
-  setInterval(() => {
-    // Sale: se desvanece y gira un poquito
+  let startX = 0;
+  let endX = 0;
+
+  function buildDots(){
+    dotsWrap.innerHTML = "";
+    heroImages.forEach((_, i) => {
+      const d = document.createElement("span");
+      d.className = "dot" + (i === current ? " active" : "");
+      d.addEventListener("click", () => {
+        const dir = i > current ? 1 : -1;
+        current = i;
+        showImage(current, dir);
+        updateDots();
+      });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function updateDots(){
+    const dots = dotsWrap.querySelectorAll(".dot");
+    dots.forEach((d, i) => {
+      d.classList.toggle("active", i === current);
+    });
+  }
+
+  function showImage(index, direction = 1){
     heroImg.style.opacity = "0";
-    heroImg.style.transform = "rotate(6deg) scale(0.97)";
+    heroImg.style.transform = `translateX(${direction * 40}px)`;
 
     setTimeout(() => {
-      // Cambia imagen
-      idx = (idx + 1) % heroImages.length;
-      heroImg.src = heroImages[idx];
+      heroImg.src = heroImages[index];
+      heroImg.style.transform = `translateX(${-direction * 40}px)`;
+    }, 200);
 
-      // Entra: regresa normal
+    setTimeout(() => {
       heroImg.style.opacity = "1";
-      heroImg.style.transform = "rotate(0deg) scale(1)";
-    }, 650);
+      heroImg.style.transform = "translateX(0)";
+    }, 260);
+  }
 
-  }, 3000); // cada 3 segundos
+  function next(){
+    current = (current + 1) % heroImages.length;
+    showImage(current, 1);
+    updateDots();
+  }
+
+  function prev(){
+    current = (current - 1 + heroImages.length) % heroImages.length;
+    showImage(current, -1);
+    updateDots();
+  }
+
+  function handleSwipe(){
+    const diff = endX - startX;
+    if(Math.abs(diff) < 40) return;
+
+    if(diff < 0) next();
+    else prev();
+  }
+
+  // TOUCH (celular)
+  slider.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", e => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+
+  // MOUSE (PC)
+  slider.addEventListener("mousedown", e => {
+    startX = e.clientX;
+  });
+
+  slider.addEventListener("mouseup", e => {
+    endX = e.clientX;
+    handleSwipe();
+  });
+
+  // Init
+  heroImg.src = heroImages[0];
+  buildDots();
 </script>
 
 </body>
